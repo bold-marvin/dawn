@@ -29,6 +29,9 @@ if (!customElements.get('product-form')) {
       formData.append('sections', this.cartNotification.getSectionsToRender().map((section) => section.id));
       formData.append('sections_url', window.location.pathname);
       config.body = formData;
+      for (var pair of formData.entries()) {
+          console.log(pair[0]+ ', ' + pair[1]); 
+      }
       console.log(config);
 
       fetch(`${routes.cart_add_url}`, config)
